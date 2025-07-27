@@ -1,0 +1,3 @@
+dotenv
+google-genai
+retico
