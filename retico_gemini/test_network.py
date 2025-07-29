@@ -7,7 +7,7 @@ from gemini import GeminiModule
 
 def callback(um):
     for iu, ut in um:
-        print(f"{ut}: {iu.payload}")
+        print(f"{ut}: {iu.text}")
 
 def set_instructions(iu, ut):
     if hasattr(iu, "text") and "France" in iu.text:
@@ -16,10 +16,11 @@ def set_instructions(iu, ut):
 if __name__ == "__main__":
     mic = MicrophoneModule(rate=16000)
     asr = GoogleASRModule(rate=16000)
-    llm = GeminiModule("You are a knowledgeable assistant holding a conversation with the user. Talk as if you were a noble scientist from the Renaissance.")#, update_instructions_callback=set_instructions)
+    llm = GeminiModule("You are a knowledgeable assistant holding a conversation with the user. Talk as if you were a noble scientist from the Renaissance.", update_instructions_callback=set_instructions)
     debug = CallbackModule(callback)
     
-    mic.subscribe(llm)
+    mic.subscribe(asr)
+    asr.subscribe(llm)
     llm.subscribe(debug)
     
     network.run(mic)

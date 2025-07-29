@@ -14,7 +14,7 @@ A Retico module that supports the Google Gemini API. This module was initially w
 ## Setup
 
 > [!WARNING]
-> It is recommended to use **Python 3.9.22** with this module in order to avoid any compatibility issues. The module on its own is compatible with ulterior Python versions, but other Retico modules that may be linked with this module might not be optimized for later Python versions.
+> It is recommended to use **Python 3.9.22** with this module in order to avoid any compatibility issues. Although the module on its own is compatible with ulterior Python versions, other Retico modules that may be linked to this module might not be optimized for later Python versions.
 
 - If you haven't yet, create a virtual environment and activate it:
 
@@ -46,6 +46,9 @@ A Retico module that supports the Google Gemini API. This module was initially w
 
   You can get an API key for free on the [Google Cloud website](https://cloud.google.com/vertex-ai/generative-ai/docs/start/api-keys).
 
+> [!NOTE]
+> A single API key should work for both the Google Gemini and Google ASR APIs, but in case not, follow the setup tutorial for the Google ASR Retico module [here](https://github.com/retico-team/retico-googleasr).
+
 ## Installation
 
 - To automatically install the module, run:
@@ -57,7 +60,7 @@ A Retico module that supports the Google Gemini API. This module was initially w
 
   ```bash
   git clone https://github.com/retico-team/retico-gemini
-  cd retico-gemini
+  cd retico_gemini
   pip install -r requirements.txt
   ```
 - To try out the test network:
